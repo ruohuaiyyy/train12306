@@ -1,13 +1,31 @@
 package com.jiawa.train.member.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.jiawa.train.member.domain.Member;
+import com.jiawa.train.member.domain.MemberExample;
+import org.apache.ibatis.annotations.Param;
 
-/**
- * @Author: lzj
- * @Description:
- * @Date: Created in 16:18 2024/1/9
- */
-@Mapper
+import java.util.List;
+
 public interface MemberMapper {
-    int count();
+    long countByExample(MemberExample example);
+
+    int deleteByExample(MemberExample example);
+
+    int deleteByPrimaryKey(Long id);
+
+    int insert(Member record);
+
+    int insertSelective(Member record);
+
+    List<Member> selectByExample(MemberExample example);
+
+    Member selectByPrimaryKey(Long id);
+
+    int updateByExampleSelective(@Param("record") Member record, @Param("example") MemberExample example);
+
+    int updateByExample(@Param("record") Member record, @Param("example") MemberExample example);
+
+    int updateByPrimaryKeySelective(Member record);
+
+    int updateByPrimaryKey(Member record);
 }
