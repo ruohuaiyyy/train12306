@@ -32,7 +32,7 @@ public class MemberService {
         memberExample.createCriteria().andMobileEqualTo(mobile);
         List<Member> list = memberMapper.selectByExample(memberExample);
         if(CollUtil.isNotEmpty(list)){
-            throw new RuntimeException();
+            throw new RuntimeException("手机号已经被注册！");
         }
         Member member = new Member();
         member.setId(System.currentTimeMillis());
